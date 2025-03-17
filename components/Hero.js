@@ -42,6 +42,13 @@ function Hero() {
             </a>
           ))}
         </div>
+
+        {/* Statistics Section */}
+        <div className="mt-6 flex space-x-6 text-white text-lg ">
+          <span>Subscribe : xxxx</span>
+          <span>Total View : xxxx</span>
+          <span>Video : xxxx</span>
+        </div>
       </div>
     </div>
   );
