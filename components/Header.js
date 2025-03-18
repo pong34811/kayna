@@ -8,6 +8,7 @@ function Header() {
           <a href="#about" className="text-xs">About</a>
           <a href="#contact" className="text-xs">Contact</a>
           <a href="#works" className="text-xs">Works</a>
+          <a href="#donet" className="text-xs">Donate</a>
         </nav>
       </div>
     </header>
