@@ -33,7 +33,7 @@ function Hero() {
       <section className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
         <div className="basis-4/6">
           <Image
-            src="/kayna.png"
+            src="/kayna.webp"
             alt="Kayna Maid Hero"
             className="w-full sm:w-full md:w-full lg:w-full xl:w-full 2xl:w-full"
             width={1920}
