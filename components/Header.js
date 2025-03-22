@@ -8,7 +8,7 @@ function Header() {
 
 
   return (
-    <header className="p-4 shadow-md text-white bg-[#FF2492]">
+    <header className="p-5 shadow-md text-white bg-[#FF2492]">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-xl font-bold">Kayna</h1>
         
