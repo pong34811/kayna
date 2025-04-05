@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
+import Aboutme from '@/components/Aboutme'
 import React from 'react'
 
 function index() {
@@ -9,6 +10,7 @@ function index() {
       <div className="relative z-10">
         <Header />
         <Hero />
+        <Aboutme />
       </div>
     </div>
   )
