@@ -52,32 +52,32 @@ function Hero() {
             <br />I love streaming games on YouTube!
           </p>
 
-          <div className="flex flex-row space-x-4 text-4xl mt-6">
+          <div className="flex flex-row space-x-4 text-3xl mt-6">
             <Link
               href="https://www.youtube.com/channel/UCC_P34t35REbiPzbHO_bifA"
               target="_blank"
-              className="text-red-500 transition-transform duration-300 hover:scale-110"
+              className="text-red-500 transition-transform duration-300 hover:scale-110 bg-white p-2 rounded-xl"
             >
               <FaYoutube />
             </Link>
             <Link
               href="https://masuru.in.th/th/s/kayna"
               target="_blank"
-              className="text-blue-400 transition-transform duration-300 hover:scale-110"
+              className="text-blue-400 transition-transform duration-300 hover:scale-110 bg-white p-2 rounded-xl"
             >
               <FaDiscord />
             </Link>
             <Link
               href="https://www.facebook.com/KaynaVTB"
               target="_blank"
-              className="text-blue-600 transition-transform duration-300 hover:scale-110"
+              className="text-blue-600 transition-transform hover:scale-75 bg-white p-2 rounded-xl"
             >
               <FaFacebook />
             </Link>
             <Link
               href="https://www.tiktok.com/@kayna_channel"
               target="_blank"
-              className="text-black transition-transform duration-300 hover:scale-110"
+              className="text-black transition-transform duration-300 hover:scale-110 bg-white p-2 rounded-xl"
             >
               <FaTiktok />
             </Link>
