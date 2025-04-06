@@ -1,6 +1,7 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Aboutme from '@/components/Aboutme'
+import Schedule from '@/components/Schedule'
 import React from 'react'
 
 function index() {
@@ -11,6 +12,7 @@ function index() {
         <Header />
         <Hero />
         <Aboutme />
+        <Schedule /> 
       </div>
     </div>
   )
