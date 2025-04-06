@@ -10,7 +10,7 @@ import {
   FaEye,
   FaVideo,
 } from "react-icons/fa";
-import { fetchChannelData } from "../controllers/channelData";
+import { fetchChannelData } from "../../controllers/channelData";
 import Image from "next/image";
 
 function Hero() {
@@ -32,13 +32,15 @@ function Hero() {
     <>
       <section className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
         <div className="basis-4/6">
-          <Image
-            src="/kayna.webp"
-            alt="Kayna Maid Hero"
-            className="w-full sm:w-full md:w-full lg:w-full xl:w-full 2xl:w-full"
-            width={1920}
-            height={6000}
-          />
+        <Image
+          src="/kayna.webp"
+          alt="Kayna Maid Hero"
+          width={1920}
+          height={1080}
+          className="w-full h-full object-cover"
+          priority
+          quality={100}
+        />
         </div>
         <div className="basis-1/3 justify-between px-6 py-20">
           <h1 className="text-4xl  sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-white font-bold">

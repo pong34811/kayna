@@ -1,7 +1,10 @@
 import Header from '@/components/Header'
-import Hero from '@/components/Hero'
-import Aboutme from '@/components/Aboutme'
-import Schedule from '@/components/Schedule'
+import Hero from '@/components/index/Hero'
+import Aboutme from '@/components/index/Aboutme'
+import Schedule from '@/components/index/Schedule'
+import Footer from '@/components/Footer'
+import Projects from '@/components/index/Projects'
+import Gallery from '@/components/index/Gallery'
 import React from 'react'
 
 function index() {
@@ -12,7 +15,11 @@ function index() {
         <Header />
         <Hero />
         <Aboutme />
-        <Schedule /> 
+        <Schedule />
+        <Projects />
+        <Gallery />
+        {/* Add more components as needed */}
+        <Footer />
       </div>
     </div>
   )

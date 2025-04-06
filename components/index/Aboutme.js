@@ -5,7 +5,7 @@ import { FaYoutube, FaTiktok, FaDiscord, FaTwitch } from "react-icons/fa";
 
 function Aboutme() {
   return (
-    <section className="flex flex-col lg:flex-row bg-gradient-to-r from-[#FF2492] via-[#FF5FA8] to-[#FF8FC4] text-white py-20 px-10 lg:px-20">
+    <section id='about' className="flex flex-col lg:flex-row bg-gradient-to-r from-[#FF2492] via-[#FF5FA8] to-[#FF8FC4] text-white py-20 px-10 lg:px-20" >
       <div className="flex-1 flex flex-col space-y-6 justify-center items-center  backdrop-blur-md text-white  p-10 sm:justify-center sm:items-center md:justify-center md:items-center lg:justify-start lg:items-start xl:justify-start xl:items-start sm:p-10 md:p-10 lg:p-10 xl:p-16">
         <h2 className="text-4xl font-extrabold mb-6 drop-shadow-lg bg-gradient-to-r from-white via-pink-200 to-white bg-clip-text text-transparent animate-gradient">
           About Me
