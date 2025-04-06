@@ -7,7 +7,6 @@ function Aboutme() {
   return (
     <section className="flex flex-col lg:flex-row bg-gradient-to-r from-[#FF2492] via-[#FF5FA8] to-[#FF8FC4] text-white py-20 px-10 lg:px-20">
       <div className="flex-1 flex flex-col space-y-6 justify-center items-center  backdrop-blur-md text-white  p-10 sm:justify-center sm:items-center md:justify-center md:items-center lg:justify-start lg:items-start xl:justify-start xl:items-start sm:p-10 md:p-10 lg:p-10 xl:p-16">
-        {/* Header with animated gradient matching the pink theme */}
         <h2 className="text-4xl font-extrabold mb-6 drop-shadow-lg bg-gradient-to-r from-white via-pink-200 to-white bg-clip-text text-transparent animate-gradient">
           About Me
         </h2>
@@ -24,24 +23,23 @@ function Aboutme() {
 
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:bg-white/10 transition duration-300">
             <p className="text-lg ">
+              <span className="font-bold">Birthday:</span> 23/10/2022
+            </p>
+          </div>
+
+          
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:bg-white/10 transition duration-300 ">
+            <p className="text-lg">
+              <span className="font-bold">Likes:</span> Streaming ,Games, Editor ,Coding
+            </p>
+          </div>
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:bg-white/10 transition duration-300">
+            <p className="text-lg ">
               <span className="font-bold">Vtuber:</span> Live2D, Vroid
             </p>
           </div>
-
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 shadow-sm  hover:bg-white/10 transition duration-300">
-            <p className="text-lg">
-              <span className="font-bold">Social Media:</span> YouTube,
-              Facebook, TikTok
-            </p>
-          </div>
-
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:bg-white/10 transition duration-300 ">
-            <p className="text-lg">
-              <span className="font-bold">Content:</span> Streaming games, game
-              reviews
-            </p>
-          </div>
         </div>
+        
 
         {/* Streaming Platforms - Improved with pink theme styling */}
         <div className="w-full bg-white/5 backdrop-blur-sm rounded-xl p-6 shadow-sm">
