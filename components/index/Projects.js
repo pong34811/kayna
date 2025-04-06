@@ -12,7 +12,7 @@ function Projects() {
               <p className="text-xl md:text-2xl mb-8 font-medium max-w-2xl mx-auto leading-relaxed">
                 เรามอบบริการโปรโมทคุณภาพสูงบนสองแพลตฟอร์มยอดนิยม
               </p>
-              <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-12">
+              <div className="flex flex-col justify-center items-center md:flex-row  gap-8 md:gap-12">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl max-w-md w-full">
                   <div className="flex flex-col items-center">
                     <div className="text-5xl mb-4 animate-bounce">🚀</div>
