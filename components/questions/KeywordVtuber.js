@@ -16,10 +16,10 @@ function KeywordVtuber() {
             <div className="border-b border-white/20 pb-4">
               <p className="text-white text-lg leading-relaxed tracking-wide">
                 เค (Kay) เป็นชื่อเล่นในชีวิตจริงของเคนะ
-                <br /> นะ (na) เป็นคำที่มีความหมายว่า "น่ารัก"
+                <br /> นะ (na) เป็นคำที่มีความหมายว่า น่ารัก
                 <br />
-                เมื่อนำมารวมกันจะได้ชื่อว่า "Kayna" ซึ่งมีความหมายว่า
-                "คนหล่อเท่"
+                เมื่อนำมารวมกันจะได้ชื่อว่า Kayna ซึ่งมีความหมายว่า
+                คนหล่อเท่
               </p>
             </div>
           </div>
