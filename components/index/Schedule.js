@@ -8,9 +8,9 @@ function Schedule() {
     <section id="schedule" className="flex flex-col justify-center items-center  lg:flex-row text-white py-20 px-10 lg:px-20">
       <div className="flex-1 flex items-center justify-center mt-10 lg:mt-0">
         <Image
-          src="/Schedule.png"
+          src="/Schedule.webp"
           alt="Kayna About Me"
-          className="w-full sm:w-full md:w-full lg:w-full xl:w-full 2xl:w-full"
+          className="w-55 sm:w-65 md:w-75 lg:w-100 xl:w-100 2xl:w-100"
           width={1920}
           height={6000}
         />

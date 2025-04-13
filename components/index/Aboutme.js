@@ -117,7 +117,7 @@ function Aboutme() {
       {/* Right Section: Image */}
       <div className="flex-1 flex items-center justify-center mt-10 lg:mt-0">
         <Image
-          src="/aboutme.png"
+          src="/aboutme.webp"
           alt="Kayna About Me"
           className="w-55 sm:w-65 md:w-75 lg:w-75 xl:w-75 2xl:w-75"
           width={600}
