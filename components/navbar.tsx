@@ -6,9 +6,9 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
+  NavbarMenuToggle,
 } from "@heroui/react";
 import { Link } from "@heroui/link";
 
@@ -19,45 +19,41 @@ export function Navbar() {
     <HeroNavbar className="bg-[#FF2492] text-white shadow-md">
       <NavbarBrand>
         <Link
+          className="select-none text-2xl font-bold tracking-wide text-white transition-colors hover:text-yellow-100"
           href="/"
-          className="text-2xl font-bold tracking-wide text-white hover:text-yellow-100 transition-colors select-none"
         >
           Kayna 🌸
         </Link>
       </NavbarBrand>
 
       {/* สำหรับหน้าจอใหญ่ */}
-      <NavbarContent className="hidden sm:flex gap-8" justify="end">
+      <NavbarContent className="gap-8 hidden sm:flex" justify="end">
         {[
           { href: "#about", label: "เกี่ยวกับฉัน" },
           { href: "#live", label: "ตารางไลฟ์" },
           { href: "#contact", label: "ติดต่อ" },
         ].map(({ href, label }) => (
-          <NavbarItem key={href} className="relative group">
+          <NavbarItem className="relative group" key={href}>
             <Link
+              className="px-2 py-1 text-white transition-colors hover:text-yellow-200"
               href={href}
-              className="text-white hover:text-yellow-200 transition-colors px-2 py-1"
             >
               {label}
             </Link>
-            {/* underline on hover */}
-            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-200 scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded"></span>
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 origin-left scale-x-0 rounded bg-yellow-200 transition-transform group-hover:scale-x-100" />
           </NavbarItem>
         ))}
       </NavbarContent>
 
       {/* ปุ่ม toggle เมนู สำหรับมือถือ */}
       <NavbarMenuToggle
-        className="sm:hidden"
         aria-label="Toggle menu"
+        className="sm:hidden"
         onClick={() => setMenuOpen(!menuOpen)}
       />
 
       {/* เมนูแบบ dropdown สำหรับมือถือ */}
-      <NavbarMenu
-        className="sm:hidden"
-        onClick={() => setMenuOpen(false)}
-      >
+      <NavbarMenu className="sm:hidden" onClick={() => setMenuOpen(false)}>
         {[
           { href: "#about", label: "เกี่ยวกับฉัน" },
           { href: "#live", label: "ตารางไลฟ์" },
@@ -65,8 +61,8 @@ export function Navbar() {
         ].map(({ href, label }) => (
           <NavbarMenuItem key={href}>
             <Link
+              className="block w-full rounded py-2 text-white transition-colors hover:bg-yellow-200 hover:text-[#FF2492]"
               href={href}
-              className="block w-full py-2 text-white hover:bg-yellow-200 hover:text-[#FF2492] transition-colors rounded"
               onClick={() => setMenuOpen(false)}
             >
               {label}
