@@ -33,7 +33,7 @@ export function Navbar() {
           { href: "#live", label: "ตารางไลฟ์" },
           { href: "#contact", label: "ติดต่อ" },
         ].map(({ href, label }) => (
-          <NavbarItem className="relative group" key={href}>
+          <NavbarItem key={href} className="relative group">
             <Link
               className="px-2 py-1 text-white transition-colors hover:text-yellow-200"
               href={href}
@@ -47,9 +47,9 @@ export function Navbar() {
 
       {/* ปุ่ม toggle เมนู สำหรับมือถือ */}
       <NavbarMenuToggle
+        aria-label="Toggle menu"
         className="sm:hidden"
         onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle menu"
       />
 
       {/* เมนูแบบ dropdown สำหรับมือถือ */}

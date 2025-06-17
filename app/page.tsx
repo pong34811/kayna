@@ -2,11 +2,9 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-
 import { Avatar, Card, Spinner } from "@heroui/react";
 import { Link as HeroLink } from "@heroui/link";
 import { button as buttonStyles } from "@heroui/theme";
-
 import {
   EyeIcon,
   FacebookIcon,
@@ -15,6 +13,7 @@ import {
   VideoIcon,
   YoutubeIcon,
 } from "lucide-react";
+import Image from "next/image"; // ที่ส่วนบนของไฟล์
 
 const API_KEY = "AIzaSyBt0PXH2soaHhqepmlzhcqyvcb-yHloulc";
 const CHANNEL_ID = "UCC_P34t35REbiPzbHO_bifA";
@@ -75,10 +74,11 @@ export default function Home() {
               id: CHANNEL_ID,
               key: API_KEY,
             },
-          }
+          },
         );
 
         const channelInfo: Channel = channelRes.data.items[0];
+
         setChannel(channelInfo);
 
         const uploadsPlaylistId =
@@ -93,13 +93,12 @@ export default function Home() {
               playlistId: uploadsPlaylistId,
               key: API_KEY,
             },
-          }
+          },
         );
 
         setVideos(videosRes.data.items);
         setError(null);
-      } catch (err) {
-        console.error(err);
+      } catch {
         setError("ไม่สามารถโหลดข้อมูลจาก YouTube API ได้");
       } finally {
         setLoading(false);
@@ -136,6 +135,7 @@ export default function Home() {
             </div>
             <div className="mt-6 flex flex-wrap justify-center gap-4 lg:justify-start">
               <HeroLink
+                isExternal
                 className={buttonStyles({
                   className:
                     "flex items-center gap-1 bg-red-600 hover:bg-red-700 text-white p-2 shadow-lg transition-all duration-300",
@@ -144,12 +144,12 @@ export default function Home() {
                   variant: "shadow",
                 })}
                 href="https://www.youtube.com/@KaynaVtuberTH"
-                isExternal
               >
                 <YoutubeIcon className="h-4 w-4" />
                 YouTube
               </HeroLink>
               <HeroLink
+                isExternal
                 className={buttonStyles({
                   className:
                     "flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-all duration-300",
@@ -158,12 +158,12 @@ export default function Home() {
                   variant: "shadow",
                 })}
                 href="https://www.facebook.com/KaynaVTB/"
-                isExternal
               >
                 <FacebookIcon className="h-4 w-4" />
                 Facebook
               </HeroLink>
               <HeroLink
+                isExternal
                 className={buttonStyles({
                   className:
                     "flex items-center gap-1 bg-black hover:bg-gray-800 text-white p-3 shadow-lg transition-all duration-300",
@@ -172,7 +172,6 @@ export default function Home() {
                   variant: "shadow",
                 })}
                 href="https://x.com/kaynavtuber"
-                isExternal
               >
                 <TwitterIcon className="h-4 w-4" />
                 X.com
@@ -203,10 +202,22 @@ export default function Home() {
                 {channel.snippet.description}
               </p>
               <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
-                {[{
-                  icon: <UsersIcon className="h-6 w-6 text-pink-200" />, label: "Subscribers", value: channel.statistics.subscriberCount },
-                  { icon: <EyeIcon className="h-6 w-6 text-pink-200" />, label: "Views", value: channel.statistics.viewCount },
-                  { icon: <VideoIcon className="h-6 w-6 text-pink-200" />, label: "Videos", value: channel.statistics.videoCount },
+                {[
+                  {
+                    icon: <UsersIcon className="h-6 w-6 text-pink-200" />,
+                    label: "Subscribers",
+                    value: channel.statistics.subscriberCount,
+                  },
+                  {
+                    icon: <EyeIcon className="h-6 w-6 text-pink-200" />,
+                    label: "Views",
+                    value: channel.statistics.viewCount,
+                  },
+                  {
+                    icon: <VideoIcon className="h-6 w-6 text-pink-200" />,
+                    label: "Videos",
+                    value: channel.statistics.videoCount,
+                  },
                 ].map((stat, i) => (
                   <div
                     key={i}
@@ -239,6 +250,7 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
               {videos.map((video) => {
                 const snippet = video.snippet;
+
                 return (
                   <a
                     key={video.id}
@@ -247,17 +259,22 @@ export default function Home() {
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    <img
+                    <Image
+                      unoptimized // ถ้าเป็น external image ที่ไม่ได้มาจาก domain ที่ระบุไว้ใน next.config.js
                       alt={snippet.title}
                       className="aspect-video w-full object-cover transition"
+                      height={180}
                       src={snippet.thumbnails.medium.url}
+                      width={320}
                     />
                     <div className="p-4">
                       <p className="line-clamp-2 text-sm font-semibold text-pink-50 transition group-hover:text-white">
                         {snippet.title}
                       </p>
                       <p className="mt-1 text-xs text-pink-200">
-                        {new Date(snippet.publishedAt).toLocaleDateString("th-TH")}
+                        {new Date(snippet.publishedAt).toLocaleDateString(
+                          "th-TH",
+                        )}
                       </p>
                     </div>
                   </a>
