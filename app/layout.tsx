@@ -39,7 +39,7 @@ export default function RootLayout({
       <body
         className={clsx(
           "h-screen text-foreground bg-background font-thai antialiased",
-          fontSans.variable
+          fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>

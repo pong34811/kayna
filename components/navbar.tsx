@@ -47,9 +47,9 @@ export function Navbar() {
 
       {/* ปุ่ม toggle เมนู สำหรับมือถือ */}
       <NavbarMenuToggle
-        aria-label="Toggle menu"
         className="sm:hidden"
         onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
       />
 
       {/* เมนูแบบ dropdown สำหรับมือถือ */}
