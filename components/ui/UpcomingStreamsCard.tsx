@@ -1,12 +1,15 @@
 import { Card } from "@heroui/react";
 import Image from "next/image";
+
 import { UpcomingLive } from "./types";
 
 interface UpcomingStreamsCardProps {
   upcomingStreams: UpcomingLive[];
 }
 
-export default function UpcomingStreamsCard({ upcomingStreams }: UpcomingStreamsCardProps) {
+export default function UpcomingStreamsCard({
+  upcomingStreams,
+}: UpcomingStreamsCardProps) {
   if (upcomingStreams.length === 0) return null;
 
   return (
@@ -19,18 +22,18 @@ export default function UpcomingStreamsCard({ upcomingStreams }: UpcomingStreams
           {upcomingStreams.map((stream) => (
             <a
               key={stream.id.videoId}
-              href={`https://www.youtube.com/watch?v=${stream.id.videoId}`}
-              target="_blank"
-              rel="noopener noreferrer"
               className="group block overflow-hidden rounded-2xl border-pink-400 shadow-lg transition hover:scale-[1.03] hover:shadow"
+              href={`https://www.youtube.com/watch?v=${stream.id.videoId}`}
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <Image
                 unoptimized
                 alt={stream.snippet.title}
+                className="aspect-video w-full object-cover transition"
+                height={180}
                 src={stream.snippet.thumbnails.medium.url}
                 width={320}
-                height={180}
-                className="aspect-video w-full object-cover transition"
               />
               <div className="p-4">
                 <p className="line-clamp-2 text-sm font-semibold text-pink-50 group-hover:text-white">
@@ -38,7 +41,9 @@ export default function UpcomingStreamsCard({ upcomingStreams }: UpcomingStreams
                 </p>
                 <p className="mt-1 text-xs text-pink-200">
                   เผยแพร่เมื่อ:{" "}
-                  {new Date(stream.snippet.publishedAt).toLocaleDateString("th-TH")}
+                  {new Date(stream.snippet.publishedAt).toLocaleDateString(
+                    "th-TH",
+                  )}
                 </p>
               </div>
             </a>

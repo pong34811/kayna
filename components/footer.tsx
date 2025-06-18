@@ -21,25 +21,25 @@ export default function Footer() {
           <div className="flex gap-4">
             <Link
               isExternal
+              className="text-white hover:text-red-400 transition"
               href="https://www.youtube.com/@KaynaVtuberTH"
               title="YouTube"
-              className="text-white hover:text-red-400 transition"
             >
               <YoutubeIcon className="h-6 w-6" />
             </Link>
             <Link
               isExternal
+              className="text-white hover:text-blue-500 transition"
               href="https://www.facebook.com/KaynaVTB/"
               title="Facebook"
-              className="text-white hover:text-blue-500 transition"
             >
               <FacebookIcon className="h-6 w-6" />
             </Link>
             <Link
               isExternal
+              className="text-white hover:text-gray-400 transition"
               href="https://x.com/kaynavtuber"
               title="Twitter/X"
-              className="text-white hover:text-gray-400 transition"
             >
               <TwitterIcon className="h-6 w-6" />
             </Link>
@@ -48,7 +48,14 @@ export default function Footer() {
 
         {/* Divider & Credit */}
         <div className="mt-6 border-t border-white/30 pt-4 text-center text-sm text-white/70">
-          Powered by <Link href="https://heroui.com" isExternal className="underline hover:text-white">HeroUI</Link>
+          Powered by{" "}
+          <Link
+            isExternal
+            className="underline hover:text-white"
+            href="https://heroui.com"
+          >
+            HeroUI
+          </Link>
         </div>
       </div>
     </footer>

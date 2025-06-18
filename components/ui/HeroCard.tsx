@@ -1,17 +1,13 @@
 "use client";
 import { Avatar, Card } from "@heroui/react";
 import { button as buttonStyles } from "@heroui/theme";
-import {
-  FacebookIcon,
-  TwitterIcon,
-  YoutubeIcon,
-} from "lucide-react";
+import { FacebookIcon, TwitterIcon, YoutubeIcon } from "lucide-react";
 import { Link as HeroLink } from "@heroui/link";
 
 function HeroCard() {
   return (
     <section>
-        {/* Hero Section */}
+      {/* Hero Section */}
       <Card className="group relative w-full max-w-5xl overflow-hidden rounded-[2rem] border border-pink-400 bg-[#FF2492] p-10 shadow-[0_8px_30px_rgba(255,192,203,0.25)] backdrop-blur-md transition-all duration-300">
         <div className="pointer-events-none absolute -inset-px z-0 rounded-[2rem] bg-gradient-to-br from-pink-300/20 to-white/10 opacity-0 blur-[6px] transition-opacity duration-500" />
         <div className="relative z-10 grid grid-cols-1 items-center gap-10 sm:grid-cols-3">
@@ -82,7 +78,7 @@ function HeroCard() {
         </div>
       </Card>
     </section>
-  )
+  );
 }
 
-export default HeroCard
+export default HeroCard;

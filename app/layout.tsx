@@ -3,6 +3,7 @@ import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
+
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
@@ -14,7 +15,15 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["Kayna", "VTuber", "Live Stream", "Virtual YouTuber", "ไคนะ", "สตรีมสด", "YouTube"],
+  keywords: [
+    "Kayna",
+    "VTuber",
+    "Live Stream",
+    "Virtual YouTuber",
+    "ไคนะ",
+    "สตรีมสด",
+    "YouTube",
+  ],
   authors: [{ name: "KaynaVtuberTH", url: siteConfig.links.youtube }],
   creator: "KaynaVtuberTH",
   icons: {

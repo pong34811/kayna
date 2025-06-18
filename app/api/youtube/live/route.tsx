@@ -39,11 +39,10 @@ export async function GET() {
       live,
       completed,
     });
-  } catch (error) {
-    console.error("Error fetching livestream data:", error);
+  } catch {
     return NextResponse.json(
       { error: "ไม่สามารถดึงข้อมูล livestream ได้" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

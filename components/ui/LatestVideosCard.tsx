@@ -1,5 +1,6 @@
 import { Card } from "@heroui/react";
 import Image from "next/image";
+
 import { VideoItem } from "./types";
 
 interface LatestVideosCardProps {
@@ -39,7 +40,9 @@ export default function LatestVideosCard({ videos }: LatestVideosCardProps) {
                       {snippet.title}
                     </p>
                     <p className="mt-1 text-xs text-pink-200">
-                      {new Date(snippet.publishedAt).toLocaleDateString("th-TH")}
+                      {new Date(snippet.publishedAt).toLocaleDateString(
+                        "th-TH",
+                      )}
                     </p>
                   </div>
                 </a>

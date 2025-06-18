@@ -1,5 +1,6 @@
 import { Card, Spinner } from "@heroui/react";
 import { EyeIcon, UsersIcon, VideoIcon } from "lucide-react";
+
 import { Channel } from "./types";
 
 interface ChannelInfoCardProps {
@@ -8,7 +9,11 @@ interface ChannelInfoCardProps {
   error: string | null;
 }
 
-export default function ChannelInfoCard({ channel, loading, error }: ChannelInfoCardProps) {
+export default function ChannelInfoCard({
+  channel,
+  loading,
+  error,
+}: ChannelInfoCardProps) {
   return (
     <Card className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-pink-400 bg-[#FF2492]/70 p-10 shadow-lg backdrop-blur-lg transition-all duration-300">
       <div className="pointer-events-none absolute -inset-px z-0 rounded-3xl bg-gradient-to-br from-pink-400/30 to-white/10 opacity-0 blur-[4px] transition-opacity duration-500 group-hover:opacity-100" />

@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { Channel, VideoItem, UpcomingLive } from "@/constants/types";
 import { API_KEY, CHANNEL_ID } from "@/constants/constants";
 
@@ -22,11 +23,12 @@ export const fetchYouTubeData = async (): Promise<YouTubeData> => {
           id: CHANNEL_ID,
           key: API_KEY,
         },
-      }
+      },
     );
 
     const channelInfo: Channel = channelRes.data.items[0];
-    const uploadsPlaylistId = channelInfo.contentDetails.relatedPlaylists.uploads;
+    const uploadsPlaylistId =
+      channelInfo.contentDetails.relatedPlaylists.uploads;
 
     // Fetch latest videos
     const videosRes = await axios.get(
@@ -38,7 +40,7 @@ export const fetchYouTubeData = async (): Promise<YouTubeData> => {
           playlistId: uploadsPlaylistId,
           key: API_KEY,
         },
-      }
+      },
     );
 
     // Fetch upcoming livestreams
@@ -53,7 +55,7 @@ export const fetchYouTubeData = async (): Promise<YouTubeData> => {
           maxResults: 50,
           key: API_KEY,
         },
-      }
+      },
     );
 
     // Fetch currently live livestreams
@@ -68,7 +70,7 @@ export const fetchYouTubeData = async (): Promise<YouTubeData> => {
           maxResults: 999,
           key: API_KEY,
         },
-      }
+      },
     );
 
     // Fetch past livestreams
@@ -83,7 +85,7 @@ export const fetchYouTubeData = async (): Promise<YouTubeData> => {
           maxResults: 50,
           key: API_KEY,
         },
-      }
+      },
     );
 
     return {
@@ -94,7 +96,7 @@ export const fetchYouTubeData = async (): Promise<YouTubeData> => {
       totalLiveStreams: liveRes.data.items?.length || 0,
       totalPastStreams: completedRes.data.items?.length || 0,
     };
-  } catch (error) {
+  } catch {
     throw new Error("ไม่สามารถโหลดข้อมูลจาก YouTube API ได้");
   }
 };

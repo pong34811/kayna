@@ -7,10 +7,10 @@ interface LiveStatsCardProps {
   totalPastStreams: number;
 }
 
-export default function LiveStatsCard({ 
-  totalScheduledStreams, 
-  totalLiveStreams, 
-  totalPastStreams 
+export default function LiveStatsCard({
+  totalScheduledStreams,
+  totalLiveStreams,
+  totalPastStreams,
 }: LiveStatsCardProps) {
   return (
     <Card className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-pink-400 bg-[#FF2492]/80 p-10 shadow-lg backdrop-blur-lg transition-all duration-300">

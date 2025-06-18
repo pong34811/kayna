@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: "Kayna | VTuber TH",
   description: "Kayna VTuber – พลังบวกผ่านไลฟ์สด เกม และการพูดคุย 💖",
-  
+
   navItems: [
     {
       label: "หน้าแรก",
