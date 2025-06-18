@@ -1,7 +1,7 @@
 import { Card } from "@heroui/react";
 import Image from "next/image";
 
-import { UpcomingLive } from "./types";
+import { UpcomingLive } from "@/constants/types";
 
 interface UpcomingStreamsCardProps {
   upcomingStreams: UpcomingLive[];
