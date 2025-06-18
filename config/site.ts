@@ -1,69 +1,61 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + HeroUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Kayna | VTuber TH",
+  description: "Kayna VTuber – พลังบวกผ่านไลฟ์สด เกม และการพูดคุย 💖",
+  
   navItems: [
     {
-      label: "Home",
+      label: "หน้าแรก",
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
+      label: "เกี่ยวกับ",
       href: "/about",
     },
+    {
+      label: "สตรีมสด",
+      href: "/livestreams",
+    },
+    {
+      label: "วิดีโอ",
+      href: "/videos",
+    },
+    {
+      label: "ติดต่อ",
+      href: "/contact",
+    },
   ],
+
   navMenuItems: [
     {
-      label: "Profile",
+      label: "โปรไฟล์",
       href: "/profile",
     },
     {
-      label: "Dashboard",
+      label: "แดชบอร์ด",
       href: "/dashboard",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "สตรีมของฉัน",
+      href: "/my-streams",
     },
     {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
+      label: "ตั้งค่า",
       href: "/settings",
     },
     {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
+      label: "ออกจากระบบ",
       href: "/logout",
     },
   ],
+
   links: {
-    github: "https://github.com/heroui-inc/heroui",
-    twitter: "https://twitter.com/hero_ui",
-    docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    github: "https://github.com/yourusername/kayna-vtuber",
+    twitter: "https://x.com/kaynavtuber",
+    youtube: "https://www.youtube.com/@KaynaVtuberTH",
+    facebook: "https://www.facebook.com/KaynaVTB",
+    discord: "https://discord.gg/YOUR_DISCORD",
+    sponsor: "https://ko-fi.com/kayna",
   },
 };

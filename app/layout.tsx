@@ -1,14 +1,12 @@
 import "@/styles/globals.css";
-
 import { Metadata, Viewport } from "next";
-import { Link } from "@heroui/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
-
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -16,8 +14,34 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  keywords: ["Kayna", "VTuber", "Live Stream", "Virtual YouTuber", "ไคนะ", "สตรีมสด", "YouTube"],
+  authors: [{ name: "KaynaVtuberTH", url: siteConfig.links.youtube }],
+  creator: "KaynaVtuberTH",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/kayna.png",
+  },
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: "https://kayna.vercel.app",
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/og-image.png", // สร้างภาพแชร์ไว้ใน public/
+        width: 1200,
+        height: 630,
+        alt: "Kayna Vtuber OG Image",
+      },
+    ],
+    locale: "th_TH",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    creator: "@kaynavtuber",
+    images: ["/og-image.png"],
   },
 };
 
@@ -58,20 +82,10 @@ export default function RootLayout({
             {/* ✅ เนื้อหาเว็บไซต์ */}
             <div className="relative z-10 flex flex-col h-full">
               <Navbar />
-              <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+              <main className="container mx-auto max-w-7xl  flex-grow">
                 {children}
               </main>
-              <footer className="w-full flex items-center justify-center py-3">
-                <Link
-                  isExternal
-                  className="flex items-center gap-1 text-current"
-                  href="https://heroui.com?utm_source=next-app-template"
-                  title="heroui.com homepage"
-                >
-                  <span className="text-default-600">Powered by</span>
-                  <p className="text-primary">HeroUI</p>
-                </Link>
-              </footer>
+              <Footer />
             </div>
           </div>
         </Providers>
