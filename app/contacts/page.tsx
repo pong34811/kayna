@@ -1,6 +1,6 @@
 import React from "react";
 
-import ContactUs from "@/components/contents/contactUs";
+import ContactUs from "@/components/contacts/contactUs";
 
 function page() {
   return (

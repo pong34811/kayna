@@ -29,9 +29,9 @@ export function Navbar() {
       {/* สำหรับหน้าจอใหญ่ */}
       <NavbarContent className="gap-8 hidden sm:flex" justify="end">
         {[
-          { href: "#about", label: "เกี่ยวกับฉัน" },
+          { href: "/", label: "เกี่ยวกับฉัน" },
           { href: "#live", label: "ตารางไลฟ์" },
-          { href: "#contact", label: "ติดต่องาน" },
+          { href: "/contacts/", label: "ติดต่องาน" },
         ].map(({ href, label }) => (
           <NavbarItem key={href} className="relative group">
             <Link
@@ -55,9 +55,9 @@ export function Navbar() {
       {/* เมนูแบบ dropdown สำหรับมือถือ */}
       <NavbarMenu className="sm:hidden" onClick={() => setMenuOpen(false)}>
         {[
-          { href: "#about", label: "เกี่ยวกับฉัน" },
+          { href: "/", label: "เกี่ยวกับฉัน" },
           { href: "#live", label: "ตารางไลฟ์" },
-          { href: "#contact", label: "ติดต่อ" },
+          { href: "/contacts/", label: "ติดต่อ" },
         ].map(({ href, label }) => (
           <NavbarMenuItem key={href}>
             <Link
