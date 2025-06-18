@@ -31,7 +31,7 @@ export function Navbar() {
         {[
           { href: "#about", label: "เกี่ยวกับฉัน" },
           { href: "#live", label: "ตารางไลฟ์" },
-          { href: "#contact", label: "ติดต่อ" },
+          { href: "#contact", label: "ติดต่องาน" },
         ].map(({ href, label }) => (
           <NavbarItem key={href} className="relative group">
             <Link
