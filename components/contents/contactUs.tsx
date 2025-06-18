@@ -1,20 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Card } from "@heroui/react";
+import { Bot, Play, DollarSign, CheckCircle, Youtube, Zap } from "lucide-react";
+import Image from "next/image";
+
 import {
   getPlaylistVideos,
   PlaylistVideoItem,
 } from "@/services/youyubePlaylist";
-import { Card } from "@heroui/react";
-import {
-  Bot,
-  Play,
-  MessageCircle,
-  DollarSign,
-  CheckCircle,
-  Youtube,
-  Zap,
-} from "lucide-react";
 
 const CONTACT_PLAYLIST_ID = "PLQsuvZAuNKtJ2dNk5MdLhbLdZpez3mceL";
 
@@ -23,12 +17,9 @@ export default function ContactUs() {
 
   useEffect(() => {
     const fetchVideosDiscord = async () => {
-      try {
-        const playlistVideos = await getPlaylistVideos(CONTACT_PLAYLIST_ID, 3);
-        setVideos(playlistVideos);
-      } catch (err) {
-        console.error("Error loading contact videos", err);
-      }
+      const playlistVideos = await getPlaylistVideos(CONTACT_PLAYLIST_ID, 3);
+
+      setVideos(playlistVideos);
     };
 
     fetchVideosDiscord();
@@ -77,18 +68,21 @@ export default function ContactUs() {
             {videos.map((video, index) => (
               <a
                 key={video.id}
-                href={`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="group relative rounded-md border border-white/20 bg-white/10 backdrop-blur-md shadow-sm transition-all duration-300 hover:shadow-md overflow-hidden"
+                href={`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`}
+                rel="noopener noreferrer"
                 style={{ animationDelay: `${index * 100}ms` }}
+                target="_blank"
               >
                 {/* Thumbnail */}
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <img
-                    src={video.snippet.thumbnails.medium.url}
+                  <Image
+                    unoptimized // ถ้าภาพมาจาก external และไม่ใช้ loader
                     alt={video.snippet.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    height={180}
+                    src={video.snippet.thumbnails.medium.url}
+                    width={320}
                   />
                   <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-red-600 rounded-full p-1 shadow transform scale-90 group-hover:scale-100 transition-transform duration-300">

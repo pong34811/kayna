@@ -1,13 +1,11 @@
-import React from 'react'
+import React from "react";
 
 export default function ContentsLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <section className='relative flex flex-col h-full'>
-      {children}
-    </section>
-  )
+    <section className="relative flex flex-col h-full">{children}</section>
+  );
 }

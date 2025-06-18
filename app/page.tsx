@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import HeroCard from "@/components/ui/HeroCard";
 import ChannelInfoCard from "@/components/ui/ChannelInfoCard";
 import LatestVideosCard from "@/components/ui/LatestVideosCard";
@@ -25,6 +26,7 @@ export default function Home() {
       try {
         setLoading(true);
         const youtubeData = await fetchYouTubeData();
+
         setData(youtubeData);
         setError(null);
       } catch (err) {
@@ -41,22 +43,18 @@ export default function Home() {
     <section className="flex min-h-screen flex-col items-center justify-center gap-10 bg-transparent p-10 text-white">
       {/* Hero Section */}
       <HeroCard />
-      
+
       {/* Channel Info Card */}
-      <ChannelInfoCard 
-        channel={data.channel} 
-        loading={loading} 
-        error={error} 
-      />
+      <ChannelInfoCard channel={data.channel} error={error} loading={loading} />
 
       {/* Latest Videos Card */}
       <LatestVideosCard videos={data.videos} />
 
       {/* Live Stats Card */}
-      <LiveStatsCard 
-        totalScheduledStreams={data.totalScheduledStreams}
+      <LiveStatsCard
         totalLiveStreams={data.totalLiveStreams}
         totalPastStreams={data.totalPastStreams}
+        totalScheduledStreams={data.totalScheduledStreams}
       />
 
       {/* Upcoming Streams Card */}

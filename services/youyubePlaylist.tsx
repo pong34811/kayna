@@ -1,6 +1,6 @@
 import axios from "axios";
-import { API_KEY, CHANNEL_ID } from "@/constants/constants";
 
+import { API_KEY, CHANNEL_ID } from "@/constants/constants";
 
 export interface PlaylistItem {
   kind: string;
@@ -58,7 +58,9 @@ export interface PlaylistVideoItem {
 }
 
 // ดึงรายการ Playlist ทั้งหมดของช่อง
-export const getChannelPlaylists = async (maxResults: number = 25): Promise<PlaylistItem[]> => {
+export const getChannelPlaylists = async (
+  maxResults: number = 25,
+): Promise<PlaylistItem[]> => {
   try {
     const response = await axios.get(
       "https://www.googleapis.com/youtube/v3/playlists",
@@ -73,14 +75,15 @@ export const getChannelPlaylists = async (maxResults: number = 25): Promise<Play
     );
 
     return response.data.items || [];
-  } catch (error) {
-    console.error("Error fetching channel playlists:", error);
+  } catch {
     throw new Error("ไม่สามารถโหลดรายการเพลย์ลิสต์ได้");
   }
 };
 
 // ดึงข้อมูล Playlist เฉพาะ ID
-export const getPlaylistById = async (playlistId: string): Promise<PlaylistItem | null> => {
+export const getPlaylistById = async (
+  playlistId: string,
+): Promise<PlaylistItem | null> => {
   try {
     const response = await axios.get(
       "https://www.googleapis.com/youtube/v3/playlists",
@@ -94,16 +97,15 @@ export const getPlaylistById = async (playlistId: string): Promise<PlaylistItem 
     );
 
     return response.data.items?.[0] || null;
-  } catch (error) {
-    console.error("Error fetching playlist by ID:", error);
+  } catch {
     throw new Error("ไม่สามารถโหลดเพลย์ลิสต์ได้");
   }
 };
 
 // ดึงวิดีโอในเพลย์ลิสต์
 export const getPlaylistVideos = async (
-  playlistId: string, 
-  maxResults: number = 50
+  playlistId: string,
+  maxResults: number = 50,
 ): Promise<PlaylistVideoItem[]> => {
   try {
     const response = await axios.get(
@@ -119,8 +121,7 @@ export const getPlaylistVideos = async (
     );
 
     return response.data.items || [];
-  } catch (error) {
-    console.error("Error fetching playlist videos:", error);
+  } catch {
     throw new Error("ไม่สามารถโหลดวิดีโอในเพลย์ลิสต์ได้");
   }
 };
@@ -129,7 +130,7 @@ export const getPlaylistVideos = async (
 export const getPlaylistVideosWithPagination = async (
   playlistId: string,
   pageToken?: string,
-  maxResults: number = 50
+  maxResults: number = 50,
 ) => {
   try {
     const params: any = {
@@ -145,7 +146,7 @@ export const getPlaylistVideosWithPagination = async (
 
     const response = await axios.get(
       "https://www.googleapis.com/youtube/v3/playlistItems",
-      { params }
+      { params },
     );
 
     return {
@@ -155,30 +156,31 @@ export const getPlaylistVideosWithPagination = async (
       totalResults: response.data.pageInfo?.totalResults || 0,
       resultsPerPage: response.data.pageInfo?.resultsPerPage || 0,
     };
-  } catch (error) {
-    console.error("Error fetching playlist videos with pagination:", error);
+  } catch {
     throw new Error("ไม่สามารถโหลดวิดีโอในเพลย์ลิสต์ได้");
   }
 };
 
 // ค้นหาเพลย์ลิสต์ในช่อง
 export const searchChannelPlaylists = async (
-  query: string, 
-  maxResults: number = 10
+  query: string,
+  maxResults: number = 10,
 ): Promise<PlaylistItem[]> => {
   try {
     // ดึงเพลย์ลิสต์ทั้งหมดก่อน
     const allPlaylists = await getChannelPlaylists(50);
-    
+
     // กรองตามคำค้นหา
-    const filteredPlaylists = allPlaylists.filter(playlist =>
-      playlist.snippet.title.toLowerCase().includes(query.toLowerCase()) ||
-      playlist.snippet.description.toLowerCase().includes(query.toLowerCase())
+    const filteredPlaylists = allPlaylists.filter(
+      (playlist) =>
+        playlist.snippet.title.toLowerCase().includes(query.toLowerCase()) ||
+        playlist.snippet.description
+          .toLowerCase()
+          .includes(query.toLowerCase()),
     );
 
     return filteredPlaylists.slice(0, maxResults);
-  } catch (error) {
-    console.error("Error searching channel playlists:", error);
+  } catch {
     throw new Error("ไม่สามารถค้นหาเพลย์ลิสต์ได้");
   }
 };
@@ -186,12 +188,12 @@ export const searchChannelPlaylists = async (
 // ดึงข้อมูลเพลย์ลิสต์พร้อมวิดีโอ
 export const getPlaylistWithVideos = async (
   playlistId: string,
-  maxVideos: number = 50
+  maxVideos: number = 50,
 ) => {
   try {
     const [playlistInfo, videos] = await Promise.all([
       getPlaylistById(playlistId),
-      getPlaylistVideos(playlistId, maxVideos)
+      getPlaylistVideos(playlistId, maxVideos),
     ]);
 
     return {
@@ -199,8 +201,7 @@ export const getPlaylistWithVideos = async (
       videos,
       totalVideos: videos.length,
     };
-  } catch (error) {
-    console.error("Error fetching playlist with videos:", error);
+  } catch {
     throw new Error("ไม่สามารถโหลดเพลย์ลิสต์และวิดีโอได้");
   }
 };
@@ -209,15 +210,16 @@ export const getPlaylistWithVideos = async (
 export const getRecentlyUpdatedPlaylists = async (maxResults: number = 10) => {
   try {
     const playlists = await getChannelPlaylists(50);
-    
+
     // เรียงตามวันที่อัปเดตล่าสุด
-    const sortedPlaylists = playlists.sort((a, b) => 
-      new Date(b.snippet.publishedAt).getTime() - new Date(a.snippet.publishedAt).getTime()
+    const sortedPlaylists = playlists.sort(
+      (a, b) =>
+        new Date(b.snippet.publishedAt).getTime() -
+        new Date(a.snippet.publishedAt).getTime(),
     );
 
     return sortedPlaylists.slice(0, maxResults);
-  } catch (error) {
-    console.error("Error fetching recently updated playlists:", error);
+  } catch {
     throw new Error("ไม่สามารถโหลดเพลย์ลิสต์ที่อัปเดตล่าสุดได้");
   }
 };
@@ -227,12 +229,12 @@ export const getPlaylistStats = async (playlistId: string) => {
   try {
     const [playlistInfo, videos] = await Promise.all([
       getPlaylistById(playlistId),
-      getPlaylistVideos(playlistId, 999) // ดึงทั้งหมด
+      getPlaylistVideos(playlistId, 999), // ดึงทั้งหมด
     ]);
 
     const totalDuration = videos.length; // จำนวนวิดีโอ
     const createdDate = playlistInfo?.snippet.publishedAt;
-    
+
     return {
       playlistTitle: playlistInfo?.snippet.title,
       totalVideos: totalDuration,
@@ -240,8 +242,7 @@ export const getPlaylistStats = async (playlistId: string) => {
       description: playlistInfo?.snippet.description,
       privacyStatus: playlistInfo?.status.privacyStatus,
     };
-  } catch (error) {
-    console.error("Error fetching playlist stats:", error);
+  } catch {
     throw new Error("ไม่สามารถโหลดสถิติเพลย์ลิสต์ได้");
   }
 };
