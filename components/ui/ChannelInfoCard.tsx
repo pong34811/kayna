@@ -1,7 +1,7 @@
 import { Card, Spinner } from "@heroui/react";
 import { EyeIcon, UsersIcon, VideoIcon } from "lucide-react";
 
-import { Channel } from "./types";
+import { Channel } from "@/constants/types";
 
 interface ChannelInfoCardProps {
   channel: Channel | null;
