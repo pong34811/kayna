@@ -1,9 +1,8 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
-
 import { Providers } from "./providers";
-
+import Script from "next/script";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
@@ -75,6 +74,13 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
+      {/* ✅ เพิ่ม Script ของ Google AdSense */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2723011936668756"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div
             className="relative flex flex-col h-full"
