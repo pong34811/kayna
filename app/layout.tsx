@@ -68,12 +68,14 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="th">
       <head />
+      <meta name="google-adsense-account" content="ca-pub-2723011936668756" />
       <body
         className={clsx(
           "h-screen text-foreground bg-background font-thai antialiased",
           fontSans.variable,
         )}
       >
+        
       {/* ✅ เพิ่ม Script ของ Google AdSense */}
         <Script
           async
