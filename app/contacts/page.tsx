@@ -84,7 +84,7 @@ function page() {
           </div>
         </div>
       </section>
-       <ContactUs />
+      <ContactUs />
     </div>
   );
 }

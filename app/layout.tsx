@@ -75,8 +75,7 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        
-      {/* ✅ เพิ่ม Script ของ Google AdSense */}
+        {/* ✅ เพิ่ม Script ของ Google AdSense */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2723011936668756"

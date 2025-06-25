@@ -19,17 +19,20 @@ const fetchAllCompletedStreams = async (): Promise<any[]> => {
 
   try {
     do {
-      const response = await axios.get("https://www.googleapis.com/youtube/v3/search", {
-        params: {
-          part: "snippet",
-          channelId: CHANNEL_ID,
-          eventType: "completed",
-          type: "video",
-          maxResults: 50,
-          pageToken: nextPageToken,
-          key: API_KEY,
+      const response = await axios.get(
+        "https://www.googleapis.com/youtube/v3/search",
+        {
+          params: {
+            part: "snippet",
+            channelId: CHANNEL_ID,
+            eventType: "completed",
+            type: "video",
+            maxResults: 50,
+            pageToken: nextPageToken,
+            key: API_KEY,
+          },
         },
-      });
+      );
 
       allItems.push(...response.data.items);
       nextPageToken = response.data.nextPageToken || "";
@@ -45,50 +48,63 @@ const fetchAllCompletedStreams = async (): Promise<any[]> => {
 export const fetchYouTubeData = async (): Promise<YouTubeData> => {
   try {
     // Fetch channel info
-    const channelRes = await axios.get("https://www.googleapis.com/youtube/v3/channels", {
-      params: {
-        part: "snippet,statistics,contentDetails",
-        id: CHANNEL_ID,
-        key: API_KEY,
+    const channelRes = await axios.get(
+      "https://www.googleapis.com/youtube/v3/channels",
+      {
+        params: {
+          part: "snippet,statistics,contentDetails",
+          id: CHANNEL_ID,
+          key: API_KEY,
+        },
       },
-    });
+    );
 
     const channelInfo: Channel = channelRes.data.items[0];
-    const uploadsPlaylistId = channelInfo.contentDetails.relatedPlaylists.uploads;
+    const uploadsPlaylistId =
+      channelInfo.contentDetails.relatedPlaylists.uploads;
 
     // Fetch latest videos
-    const videosRes = await axios.get("https://www.googleapis.com/youtube/v3/playlistItems", {
-      params: {
-        part: "snippet",
-        maxResults: 3,
-        playlistId: uploadsPlaylistId,
-        key: API_KEY,
+    const videosRes = await axios.get(
+      "https://www.googleapis.com/youtube/v3/playlistItems",
+      {
+        params: {
+          part: "snippet",
+          maxResults: 3,
+          playlistId: uploadsPlaylistId,
+          key: API_KEY,
+        },
       },
-    });
+    );
 
     // Fetch upcoming livestreams
-    const upcomingRes = await axios.get("https://www.googleapis.com/youtube/v3/search", {
-      params: {
-        part: "snippet",
-        channelId: CHANNEL_ID,
-        eventType: "upcoming",
-        type: "video",
-        maxResults: 50,
-        key: API_KEY,
+    const upcomingRes = await axios.get(
+      "https://www.googleapis.com/youtube/v3/search",
+      {
+        params: {
+          part: "snippet",
+          channelId: CHANNEL_ID,
+          eventType: "upcoming",
+          type: "video",
+          maxResults: 50,
+          key: API_KEY,
+        },
       },
-    });
+    );
 
     // Fetch live streams
-    const liveRes = await axios.get("https://www.googleapis.com/youtube/v3/search", {
-      params: {
-        part: "snippet",
-        channelId: CHANNEL_ID,
-        eventType: "live",
-        type: "video",
-        maxResults: 50,
-        key: API_KEY,
+    const liveRes = await axios.get(
+      "https://www.googleapis.com/youtube/v3/search",
+      {
+        params: {
+          part: "snippet",
+          channelId: CHANNEL_ID,
+          eventType: "live",
+          type: "video",
+          maxResults: 50,
+          key: API_KEY,
+        },
       },
-    });
+    );
 
     // Fetch completed streams with pagination
     const completedItems = await fetchAllCompletedStreams();
